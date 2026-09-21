@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samuel Segura | Agente Inmobiliario Registro N° 26224-PN-MVCS</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración de Tailwind CSS -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0284c7',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            gold: '#d97706',
+                            goldHover: '#b45309',
+                            dark: '#0f172a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-gold {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+        .gradient-hero {
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.95) 100%);
+        }
+        /* Custom range slider styling */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #d97706;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(217, 119, 6, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-amber-500 selection:text-white">
+
+    <!-- NAV BAR PRINCIPAL -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- LOGOTIPO -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-slate-900 transition-all duration-300">
+                        <img src="imagenes/logotipo_inmobiliario.png" alt="Logo Samuel Segura" class="h-10 w-auto object-contain">
+                    </div>
+                    <div>
+                        <span class="block text-xl font-bold tracking-tight text-white leading-none">SAMUEL SEGURA</span>
+                        <span class="text-xs text-amber-400 font-medium tracking-wider uppercase">Agente Inmobiliario</span>
+                    </div>
+                </a>
+
+                <!-- MENÚ DE NAVEGACIÓN -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="#inicio" class="hover:text-amber-400 transition-colors">Inicio</a>
+                    <a href="#agente" class="hover:text-amber-400 transition-colors">Perfil</a>
+                    <a href="#propiedades" class="hover:text-amber-400 transition-colors">Inmuebles</a>
+                    <a href="#calculadora" class="hover:text-amber-400 transition-colors">Calculadora de Comisión</a>
+                    <a href="#contacto" class="hover:text-amber-400 transition-colors">Contacto</a>
+                </nav>
+
+                <!-- BOTONES DE CONTACTO DIRECTO EN NAV -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="https://wa.me/51996907363?text=Hola%20Samuel,%20quisiera%20recibir%20información%20inmobiliaria" target="_blank" class="px-4 py-2.5 rounded-xl gradient-gold text-slate-950 font-bold text-sm hover:shadow-lg hover:shadow-amber-500/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Contactar por WhatsApp</span>
+                    </a>
+                </div>
+
+                <!-- BOTÓN MÓVIL (HAMBURGUESA) -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- MENÚ MÓVIL DESPLEGABLE -->
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" class="block py-2 text-slate-300 hover:text-amber-400 font-medium">Inicio</a>
+            <a href="#agente" class="block py-2 text-slate-300 hover:text-amber-400 font-medium">Perfil del Agente</a>
+            <a href="#propiedades" class="block py-2 text-slate-300 hover:text-amber-400 font-medium">Inmuebles</a>
+            <a href="#calculadora" class="block py-2 text-slate-300 hover:text-amber-400 font-medium">Calculadora de Comisión</a>
+            <a href="#contacto" class="block py-2 text-slate-300 hover:text-amber-400 font-medium">Contacto Directo</a>
+            <a href="https://wa.me/51996907363" target="_blank" class="w-full mt-2 py-3 rounded-xl gradient-gold text-slate-950 text-center font-bold flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Directo
+            </a>
+        </div>
+    </header>
+
+    <!-- SECCIÓN HERO / INICIO (REDISEÑADA) -->
+    <section id="inicio" class="relative pt-32 pb-20 md:pt-40 md:pb-32 bg-slate-900 text-white overflow-hidden">
+        <!-- Fondo con imagen e overlay de opacidad -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1920&auto=format&fit=crop" alt="Propiedades de lujo" class="w-full h-full object-cover object-center opacity-25">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs sm:text-sm font-semibold tracking-wide uppercase">
+                        <i class="fa-solid fa-award"></i> Agente Acreditado MVCS Código N° 26224-PN-MVCS
+                    </div>
+                    
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                        Venta y Alquiler de <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">Inmuebles Exclusivos</span> en Lima
+                    </h1>
+                    
+                    <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Convierto la comercialización de tu inmueble en un proceso <strong>estratégico, ordenado y acompañado</strong>. Realizo el <strong >ACM y determinación del precio objetivo</strong>, preparo el inmueble para su comercialización, gestiono su publicación y difusión, filtro potenciales clientes y coordino las visitas.
+
+Te acompaño en la <strong> negociación, gestión documental y cierre de la operación</strong>, para que tomes decisiones informadas y seguras en cada etapa.
+                    </p>
+
+                    <!-- Accesos Rápidos de Categorías -->
+                    <div class="pt-2 flex flex-wrap justify-center lg:justify-start gap-3 text-xs sm:text-sm">
+                        <span class="px-3.5 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700 text-slate-300 flex items-center gap-2">
+                            <i class="fa-solid fa-mountain-sun text-amber-400"></i> Terrenos
+                        </span>
+                        <span class="px-3.5 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700 text-slate-300 flex items-center gap-2">
+                            <i class="fa-solid fa-house text-amber-400"></i> Casas
+                        </span>
+                        <span class="px-3.5 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700 text-slate-300 flex items-center gap-2">
+                            <i class="fa-solid fa-building text-amber-400"></i> Departamentos
+                        </span>
+                        <span class="px-3.5 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700 text-slate-300 flex items-center gap-2">
+                            <i class="fa-solid fa-shop text-amber-400"></i> Locales Comerciales
+                        </span>
+                    </div>
+
+                    <!-- NUEVOS BOTONES DEL HERO -->
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#propiedades" class="w-full sm:w-auto px-8 py-4 rounded-xl gradient-gold text-slate-950 font-extrabold text-center hover:shadow-xl hover:shadow-amber-500/20 hover:scale-[1.02] transition-all">
+                            <i class="fa-solid fa-magnifying-glass me-2"></i> BUSCO UNA PROPIEDAD
+                        </a>
+                        <a href="https://wa.me/51941306659?text=Hola%20Samuel,%20quiero%20vender%20mi%20inmueble" target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-bold text-center transition-all">
+                            <i class="fa-solid fa-hand-holding-dollar me-2 text-amber-400"></i> QUIERO VENDER MI INMUEBLE
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta destacada del Agente en Hero (SE MANTIENE) -->
+                <div class="lg:col-span-5">
+                    <div class="glass-dark rounded-3xl p-6 sm:p-8 border border-slate-700/60 shadow-2xl relative">
+                        <div class="absolute -top-3 -right-3 bg-amber-500 text-slate-950 font-bold text-xs uppercase px-3 py-1 rounded-full shadow-lg">
+                            Verificado MVCS
+                        </div>
+                        
+                        <div class="flex flex-col sm:flex-row items-center gap-6">
+                            <div class="relative shrink-0">
+                                <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-amber-500/50 shadow-md">
+                                    <img src="imagenes/perfil-realista..png" 
+                                         alt="Samuel Segura - Agente Inmobiliario" 
+                                         class="w-full h-full object-cover object-top"
+                                         onerror="this.src='https://placehold.co/300x300/1e293b/f59e0b?text=Samuel+Segura'"> 
+                                </div>
+                                <div class="absolute -bottom-2 -right-2 bg-slate-900 border border-amber-500 text-amber-400 p-1.5 rounded-lg text-xs" title="Agente Registro Oficial">
+                                    <i class="fa-solid fa-certificate"></i>
+                                </div>
+                            </div>
+
+                            <div class="text-center sm:text-left space-y-2">
+                                <h3 class="text-2xl font-bold text-white">Samuel Segura</h3>
+                                <p class="text-amber-400 font-medium text-sm">Agente Inmobiliario Profesional</p>
+                                <p class="text-xs text-slate-400 font-mono bg-slate-800/80 px-2.5 py-1 rounded-md inline-block border border-slate-700">
+                                    Código N° 26224-PN-MVCS
+                                </p>
+                                <p class="text-xs text-slate-300 pt-1 flex items-center justify-center sm:justify-start gap-1">
+                                    <i class="fa-solid fa-location-dot text-amber-500"></i> Surco, Lima - Perú
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-6 border-t border-slate-800/80 space-y-2.5 text-sm">
+                            <a href="tel:996907363" class="flex items-center gap-3 text-slate-300 hover:text-amber-400 transition-colors p-2 rounded-lg hover:bg-slate-800/50">
+                                <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <span><strong>996 907 363</strong> / <strong>941 306 659</strong></span>
+                            </a>
+                            <a href="mailto:saseyu.inmobiliaria@gmail.com" class="flex items-center gap-3 text-slate-300 hover:text-amber-400 transition-colors p-2 rounded-lg hover:bg-slate-800/50">
+                                <div class="w-8 h-8 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <span class="truncate">saseyu.inmobiliaria@gmail.com</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PERFIL DEL AGENTE INMOBILIARIO (ÚNICA SECCIÓN DE PERFIL) -->
+    <section id="agente" class="py-20 bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-slate-900 rounded-3xl overflow-hidden shadow-xl text-white">
+                <div class="grid grid-cols-1 lg:grid-cols-12">
+                    
+                    <div class="lg:col-span-5 bg-gradient-to-br from-slate-800 to-slate-950 p-8 sm:p-10 flex flex-col justify-between items-center text-center relative border-b lg:border-b-0 lg:border-r border-slate-800">
+                        
+                        <div class="space-y-4 my-auto">
+                            <div class="relative w-40 h-40 sm:w-48 sm:h-48 mx-auto rounded-full overflow-hidden border-4 border-amber-500/80 shadow-2xl">
+                                <img src="imagenes/perfil-realista..png" 
+                                     alt="Samuel Segura Agente Inmobiliario" 
+                                     class="w-full h-full object-cover object-top"
+                                     onerror="this.src='https://placehold.co/300x300/1e293b/f59e0b?text=Samuel+Segura'">
+                            </div>
+
+                            <div>
+                                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Samuel Segura</h2>
+                                <p class="text-amber-400 font-semibold text-sm tracking-wide uppercase mt-1">Agente Inmobiliario Acreditado</p>
+                                <span class="inline-block mt-3 px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-300 font-mono text-xs rounded-full">
+                                    Registro MVCS N° 26224-PN-MVCS
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="w-full pt-6 mt-6 border-t border-slate-800/80 flex items-center justify-center gap-3 text-xs text-slate-400">
+                            <i class="fa-solid fa-shield-halved text-2xl text-amber-500"></i>
+                            <span class="text-left">Acreditación Oficial del Ministerio de Vivienda, Construcción y Saneamiento del Perú.</span>
+                        </div>
+
+                    </div>
+
+                    <div class="lg:col-span-7 p-8 sm:p-12 space-y-6 flex flex-col justify-center">
+                        <div>
+                            <span class="text-amber-500 text-xs font-bold tracking-widest uppercase">Respaldo y Confianza</span>
+                            <h3 class="text-2xl sm:text-3xl font-bold text-white mt-1">Tu aliado estratégico para compras, ventas y alquileres seguros</h3>
+                        </div>
+
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            Con amplia experiencia en el sector inmobiliario peruano, mi compromiso es brindar una asesoría transparente, eficiente y orientada a maximizar el valor de tu propiedad o inversión. Gestionamos con rigurosidad legal y comercial cada operación.
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <div class="bg-slate-800/60 p-4 rounded-2xl border border-slate-700/80">
+                                <div class="text-amber-400 text-xs uppercase font-bold tracking-wider mb-1">Teléfonos de Contacto</div>
+                                <div class="text-white font-semibold text-base flex items-center gap-2">
+                                    <i class="fa-solid fa-phone text-amber-500"></i>
+                                    <span>996 907 363</span>
+                                </div>
+                                <div class="text-white font-semibold text-base flex items-center gap-2 mt-1">
+                                    <i class="fa-solid fa-mobile-screen text-amber-500"></i>
+                                    <span>941 306 659</span>
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-800/60 p-4 rounded-2xl border border-slate-700/80">
+                                <div class="text-amber-400 text-xs uppercase font-bold tracking-wider mb-1">Correo Electrónico</div>
+                                <div class="text-white font-semibold text-sm sm:text-base flex items-center gap-2 truncate">
+                                    <i class="fa-solid fa-envelope text-amber-500"></i>
+                                    <a href="mailto:saseyu.inmobiliaria@gmail.com" class="hover:underline truncate">saseyu.inmobiliaria@gmail.com</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-800/60 p-4 rounded-2xl border border-slate-700/80">
+                            <div class="text-amber-400 text-xs uppercase font-bold tracking-wider mb-1">Dirección de Oficina / Atención</div>
+                            <div class="text-white font-medium text-sm sm:text-base flex items-start gap-2">
+                                <i class="fa-solid fa-location-dot text-amber-500 mt-1"></i>
+                                <span>Calle Poseidon Mz A9 Lt. 12 Urb. Sagitario - Surco, Lima</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-2 flex flex-wrap gap-4">
+                            <a href="https://wa.me/51996907363?text=Hola%20Samuel%20Segura,%20deseo%20asesoría%20para%20una%20propiedad" target="_blank" class="px-6 py-3.5 rounded-xl gradient-gold text-slate-950 font-bold hover:shadow-lg transition-all flex items-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-xl"></i>
+                                <span>Enviar mensaje directo</span>
+                            </a>
+                            <a href="tel:996907363" class="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold border border-slate-700 transition-all flex items-center gap-2">
+                                <i class="fa-solid fa-phone text-amber-400"></i>
+                                <span>Llamar Ahora</span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NUEVA SECCIÓN: PROPIEDADES DESTACADAS -->
+    <section id="destacadas" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-amber-600 font-bold text-xs uppercase tracking-widest">Selección Exclusiva</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">Propiedades Destacadas</h2>
+                <p class="text-slate-600 mt-3 text-base">
+                    Una muestra de nuestras mejores opciones disponibles. Contáctanos para más detalles.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Propiedad Destacada 1 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200/80 flex flex-col">
+                    <div class="relative h-64 overflow-hidden group">
+                        <img src="imagenes/EDIFICIO-CV.png" 
+                             alt="Departamento Moderno" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Departamento'">
+                        <div class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-xs font-black uppercase px-3 py-1 rounded-full shadow-md">
+                            Venta
+                        </div>
+                        <div class="absolute top-4 right-4 bg-slate-900/80 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md">
+                            Departamento
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-extrabold text-slate-900">$ 87,000 USD</span>
+                                <span class="text-xs text-slate-500 font-medium">1 Dorm. | 2 Baños</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2 line-clamp-1">Oportunidad de inversión en Surco</h3>
+                            <p class="text-xs text-slate-500 flex items-center gap-1 mt-1">
+                                <i class="fa-solid fa-location-dot text-amber-500"></i> Urb. Sagitario, Santiago de Surco
+                            </p>
+                            <p class="text-slate-600 text-sm mt-3 line-clamp-3">
+                                2 departamentos independientes en 6.º piso, con excelente iluminación y amplia terraza con vista panorámica. <strong>Precio por el paquete: US$170,000 negociable</strong>.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-slate-700 text-sm font-semibold">
+                            <div class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-ruler-combined text-amber-500"></i>
+                                <span>90 m²</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-slate-500">
+                                <span><i class="fa-solid fa-bed text-slate-400"></i> 1</span>
+                                <span><i class="fa-solid fa-bath text-slate-400"></i> 2</span>
+                                <!--<span><i class="fa-solid fa-car text-slate-400"></i> 1</span>-->
+                            </div>
+                        </div>
+                        <a href="https://wa.me/51996907363?text=Hola%20Samuel,%20deseo%20detalles%20del%20Departamento%20en%20Los%20Parrales%20Surco%20de%20US$112,000" target="_blank" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-white font-bold text-center transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Consultar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Propiedad Destacada 2 -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200/80 flex flex-col">
+                    <div class="relative h-64 overflow-hidden group">
+                        <img src="imagenes/EDIFICIO-MAGNOLIA.jpg" 
+                             alt="Departamento Duplex" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Departamento'">
+                        <div class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-xs font-black uppercase px-3 py-1 rounded-full shadow-md">
+                            Venta
+                        </div>
+                        <div class="absolute top-4 right-4 bg-slate-900/80 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md">
+                            Departamento
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-extrabold text-slate-900">S/. 965,000 PEN</span>
+                                <span class="text-xs text-slate-500 font-medium">3 Dorm. | 2 Baños</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2 line-clamp-1">Invierte en una ubicación estratégica</h3>
+                            <p class="text-xs text-slate-500 flex items-center gap-1 mt-1">
+                                <i class="fa-solid fa-location-dot text-amber-500"></i> Av. Antunez de Mayolo, Santiago de Surco
+                            </p>
+                            <p class="text-slate-600 text-sm mt-3 line-clamp-3">
+                                <strong>2 departamentos dúplex modernos y exclusivos</strong>, estratégicamente ubicados cerca de centros comerciales y principales vías de acceso. Cochera opcional y entrega estimada para diciembre de 2026..
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-slate-700 text-sm font-semibold">
+                            <div class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-ruler-combined text-amber-500"></i>
+                                <span>112 m²</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-slate-500">
+                                <span><i class="fa-solid fa-bed text-slate-400"></i> 3</span>
+                                <span><i class="fa-solid fa-bath text-slate-400"></i> 2</span>
+                                <span><i class="fa-solid fa-car text-slate-400"></i> 1</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/51996907363?text=Hola%20Samuel,%20deseo%20detalles%20del%20Departamento%20en%20Los%20Parrales%20Surco%20de%20US$112,000" target="_blank" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-white font-bold text-center transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Consultar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- ==============================================
+     NUEVA SECCIÓN: VIDEOS DE PROPIEDADES
+     Ubicada debajo de "Propiedades Destacadas"
+     ============================================== -->
+<section id="videos-propiedades" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+    
+    <!-- Decoración de fondo sutil -->
+    <div class="absolute -top-32 -right-32 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <!-- Encabezado -->
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Recorridos en Video</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Conoce las Propiedades en Video</h2>
+            <p class="text-slate-300 mt-3 text-base">
+                Explora cada inmueble con recorridos virtuales en alta calidad. Haz clic en cualquier video para verlo en pantalla completa.
+            </p>
+        </div>
+
+        <!-- Grid de Videos -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8" id="videosGrid">
+
+            <!-- ============================================
+                 VIDEO CARD 1 - VIDEO HORIZONTAL (16:9)
+                 Formato: MP4 + WebM (fallback)
+                 ============================================ -->
+            <article class="video-card group bg-slate-800/60 rounded-3xl overflow-hidden border border-slate-700/60 hover:border-amber-500/60 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-amber-500/10 flex flex-col">
+                
+                <!-- Contenedor del Video (Responsive con aspect-ratio) -->
+                <div class="relative w-full aspect-video bg-slate-950 overflow-hidden cursor-pointer"
+                     onclick="openVideoModal(this)"
+                     role="button"
+                     tabindex="0"
+                     aria-label="Reproducir video: Departamento en Surco"
+                     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openVideoModal(this);}">
+                    
+                    <!-- VIDEO: Se ajusta a cualquier formato y extensión -->
+                    <video 
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        preload="metadata"
+                        muted
+                        loop
+                        playsinline
+                        poster="imagenes/EDIFICIO-CV.png">
+                        <!-- Añade aquí todas las fuentes disponibles: el navegador elegirá la primera compatible -->
+                        <source src="videos/videoClark.mp4" type="video/mp4">
+                        <source src="videos/videoClark.webm" type="video/webm">
+                        <!--<source src="videos/departamento-surco.ogv" type="video/ogg">-->
+                        <!-- Fallback si el navegador no soporta video -->
+                        Tu navegador no soporta la reproducción de video HTML5.
+                    </video>
+
+                    <!-- Overlay con botón de play central -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity">
+                        <div class="w-16 h-16 rounded-full bg-amber-500/90 backdrop-blur-sm flex items-center justify-center text-slate-950 text-2xl shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                            <i class="fa-solid fa-play ms-1"></i>
+                        </div>
+                    </div>
+
+                    <!-- Etiqueta de tipo -->
+                    <div class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-xs font-black uppercase px-3 py-1 rounded-full shadow-md z-10">
+                        Video Tour
+                    </div>
+                    <div class="absolute top-4 right-4 bg-slate-900/80 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md z-10">
+                        Departamento
+                    </div>
+                </div>
+
+                <!-- Información del Video -->
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+                    <div>
+                        <h3 class="text-lg font-bold text-white line-clamp-1">Departamento con Amplia Terraza</h3>
+                        <p class="text-xs text-slate-400 flex items-center gap-1 mt-1">
+                            <i class="fa-solid fa-location-dot text-amber-500"></i> Urb. Sagitario, Santiago de Surco
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-400">
+                        <span class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock text-amber-500"></i> 00:45
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-eye text-amber-500"></i> 128 vistas
+                        </span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ============================================
+                 VIDEO CARD 2 - VIDEO VERTICAL (9:16)
+                 Ideal para reels / tours verticales
+                 ============================================ -->
+            <article class="video-card group bg-slate-800/60 rounded-3xl overflow-hidden border border-slate-700/60 hover:border-amber-500/60 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-amber-500/10 flex flex-col">
+                
+                <div class="relative w-full aspect-video bg-slate-950 overflow-hidden cursor-pointer"
+                     onclick="openVideoModal(this)"
+                     role="button"
+                     tabindex="0"
+                     aria-label="Reproducir video: Proyecto Aura San Miguel"
+                     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openVideoModal(this);}">
+                    
+                    <!-- Video vertical dentro de contenedor 16:9 usando object-cover -->
+                    <video 
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        preload="metadata"
+                        muted
+                        loop
+                        playsinline
+                        poster="imagenes/EDIFICIO-AURA-SM.PNG">
+                        <source src="videos/aura-ok.mp4" type="video/mp4">
+                        <source src="videos/aura-ok.webm" type="video/webm">
+                        Tu navegador no soporta la reproducción de video HTML5.
+                    </video>
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity">
+                        <div class="w-16 h-16 rounded-full bg-amber-500/90 backdrop-blur-sm flex items-center justify-center text-slate-950 text-2xl shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                            <i class="fa-solid fa-play ms-1"></i>
+                        </div>
+                    </div>
+
+                    <div class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-xs font-black uppercase px-3 py-1 rounded-full shadow-md z-10">
+                        Video Tour
+                    </div>
+                    <div class="absolute top-4 right-4 bg-slate-900/80 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md z-10">
+                        Departamento
+                    </div>
+                </div>
+
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+                    <div>
+                        <h3 class="text-lg font-bold text-white line-clamp-1">Proyecto Aura - Estreno</h3>
+                        <p class="text-xs text-slate-400 flex items-center gap-1 mt-1">
+                            <i class="fa-solid fa-location-dot text-amber-500"></i> Av. Los Patriotas, San Miguel
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-400">
+                        <span class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock text-amber-500"></i> 01:20
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-eye text-amber-500"></i> 342 vistas
+                        </span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ============================================
+                 VIDEO CARD 3 - VIDEO CUADRADO / OTRO FORMATO
+                 Se adapta a cualquier relación de aspecto
+                 ============================================ -->
+            <article class="video-card group bg-slate-800/60 rounded-3xl overflow-hidden border border-slate-700/60 hover:border-amber-500/60 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-amber-500/10 flex flex-col">
+                
+                <div class="relative w-full aspect-video bg-slate-950 overflow-hidden cursor-pointer"
+                     onclick="openVideoModal(this)"
+                     role="button"
+                     tabindex="0"
+                     aria-label="Reproducir video: Proyecto Magnolia Park"
+                     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openVideoModal(this);}">
+                    
+                    <video 
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        preload="metadata"
+                        muted
+                        loop
+                        playsinline
+                        poster="imagenes/EDIFICIO-MAGNOLIA.jpg">
+                        <!-- CORREGIDO: magnolia-park en lugar de magnolios-park -->
+                        <source src="videos/magnolia-park.mp4" type="video/mp4">
+                        <!--<source src="videos/magnolia-park.webm" type="video/webm">-->
+                        Tu navegador no soporta la reproducción de video HTML5.
+                    </video>
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent flex items-center justify-center opacity-90 group-hover:opacity-100 transition-opacity">
+                        <div class="w-16 h-16 rounded-full bg-amber-500/90 backdrop-blur-sm flex items-center justify-center text-slate-950 text-2xl shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                            <i class="fa-solid fa-play ms-1"></i>
+                        </div>
+                    </div>
+
+                    <div class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-xs font-black uppercase px-3 py-1 rounded-full shadow-md z-10">
+                        Video Tour
+                    </div>
+                    <div class="absolute top-4 right-4 bg-slate-900/80 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md z-10">
+                        Dúplex
+                    </div>
+                </div>
+
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-3">
+                    <div>
+                        <h3 class="text-lg font-bold text-white line-clamp-1">Proyecto Magnolia Park</h3>
+                        <p class="text-xs text-slate-400 flex items-center gap-1 mt-1">
+                            <i class="fa-solid fa-location-dot text-amber-500"></i> Av. Antúnez de Mayolo, Surco
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-400">
+                        <span class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock text-amber-500"></i> 02:10
+                        </span>
+                        <span class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-eye text-amber-500"></i> 567 vistas
+                        </span>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- CTA para más videos -->
+        <div class="mt-12 text-center">
+            <a href="https://wa.me/51996907363?text=Hola%20Samuel,%20quiero%20ver%20más%20videos%20de%20propiedades" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-amber-500/50 text-white font-bold transition-all">
+                <i class="fa-brands fa-whatsapp text-xl text-amber-400"></i>
+                <span>Solicitar más videos por WhatsApp</span>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ==============================================
+     MODAL LIGHTBOX PARA REPRODUCIR VIDEO
+     Se activa al hacer clic en cualquier video card
+     ============================================== -->
+
+<div id="videoModal" 
+     class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-950/95 backdrop-blur-md p-4 sm:p-6"
+     role="dialog"
+     aria-modal="true"
+     aria-label="Reproductor de video"
+     onclick="if(event.target===this) closeVideoModal();">
+    
+    <!-- Botón de cierre -->
+    <button onclick="closeVideoModal()" 
+            class="absolute top-4 right-4 sm:top-6 sm:right-6 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-slate-800 hover:bg-amber-500 text-white hover:text-slate-950 flex items-center justify-center text-lg sm:text-xl transition-all z-20 shadow-lg"
+            aria-label="Cerrar video">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <!-- Contenedor del video en modal (tamaño controlado) -->
+    <div class="relative w-full max-w-3xl rounded-2xl overflow-hidden bg-black shadow-2xl"
+         onclick="event.stopPropagation()">
+        
+        <!-- El video se inyecta dinámicamente aquí -->
+        <div id="modalVideoContainer" class="w-full aspect-video flex items-center justify-center bg-black">
+            <!-- Contenido inyectado por JS -->
+        </div>
+
+    </div>
+</div>
+
+
+
+
+    <!-- NUEVA SECCIÓN: CÓMO TRABAJO (REEMPLAZA LA SECCIÓN DUPLICADA) -->
+    <section id="como-trabajo" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-amber-600 font-bold text-xs uppercase tracking-widest">Metodología Profesional</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">CÓMO TRABAJO</h2>
+                <p class="text-slate-600 mt-3 text-base">
+                    Un proceso estructurado para garantizar el éxito de tu operación inmobiliaria.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Paso 1 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 hover:border-amber-500/50 transition-all duration-300 shadow-sm">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-600 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Analizamos</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Estudiamos el mercado, la zona y las condiciones actuales para entender el valor real de tu propiedad.
+                    </p>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 hover:border-amber-500/50 transition-all duration-300 shadow-sm">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-600 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Valorizamos</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Determinamos el precio más competitivo y justo, alineado con las tendencias del mercado.
+                    </p>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 hover:border-amber-500/50 transition-all duration-300 shadow-sm">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-600 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Promocionamos</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Difundimos tu inmueble en los canales digitales y redes de contactos más efectivos.
+                    </p>
+                </div>
+
+                <!-- Paso 4 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 hover:border-amber-500/50 transition-all duration-300 shadow-sm">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-600 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-filter"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Filtramos</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Seleccionamos compradores o arrendatarios calificados para asegurar transacciones serias.
+                    </p>
+                </div>
+
+                <!-- Paso 5 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 hover:border-amber-500/50 transition-all duration-300 shadow-sm">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-600 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Negociamos</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Gestionamos la mejor oferta posible, defendiendo siempre tus intereses.
+                    </p>
+                </div>
+
+                <!-- Paso 6 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 hover:border-amber-500/50 transition-all duration-300 shadow-sm">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-600 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-file-signature"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Cerramos</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Acompañamos todo el proceso legal y documentario hasta la firma y entrega.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE PROPIEDADES POR CATEGORÍAS (MANTENIDA) -->
+    <section id="propiedades" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-amber-600 font-bold text-xs uppercase tracking-widest">Portafolio Destacado</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">Propiedades en Venta y Alquiler</h2>
+                <p class="text-slate-600 mt-3 text-base">
+                    Explora nuestra selección exclusiva de terrenos, casas, departamentos y locales comerciales en las mejores zonas.
+                </p>
+                
+                <div class="flex flex-wrap justify-center gap-2 mt-8" id="filterContainer">
+                    <button onclick="filterProperties('all')" class="filter-btn active px-5 py-2.5 rounded-full text-sm font-bold transition-all bg-slate-900 text-white shadow-md" data-filter="all">
+                        Todos
+                    </button>
+                    <button onclick="filterProperties('terrenos')" class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold transition-all bg-white text-slate-700 hover:bg-slate-200 border border-slate-300" data-filter="terrenos">
+                        <i class="fa-solid fa-mountain-sun text-amber-500 me-1"></i> Terrenos
+                    </button>
+                    <button onclick="filterProperties('casas')" class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold transition-all bg-white text-slate-700 hover:bg-slate-200 border border-slate-300" data-filter="casas">
+                        <i class="fa-solid fa-house text-amber-500 me-1"></i> Casas
+                    </button>
+                    <button onclick="filterProperties('departamentos')" class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold transition-all bg-white text-slate-700 hover:bg-slate-200 border border-slate-300" data-filter="departamentos">
+                        <i class="fa-solid fa-building text-amber-500 me-1"></i> Departamentos
+                    </button>
+                    <button onclick="filterProperties('locales')" class="filter-btn px-5 py-2.5 rounded-full text-sm font-bold transition-all bg-white text-slate-700 hover:bg-slate-200 border border-slate-300" data-filter="locales">
+                        <i class="fa-solid fa-shop text-amber-500 me-1"></i> Locales Comerciales
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="propertiesGrid">
+
+                <!-- PROPIEDAD 1: TERRENO -->
+                <div class="property-card terrenos bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200/80 flex flex-col">
+                    <div class="relative h-60 overflow-hidden group">
+                        <img src="imagenes/las-orquideas.jpeg" 
+                             alt="Terreno Residencial" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Terreno+En+Venta'">
+                        <div class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-xs font-black uppercase px-3 py-1 rounded-full shadow-md">
+                            Venta
+                        </div>
+                        <div class="absolute top-4 right-4 bg-slate-900/80 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md">
+                            Terreno
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-extrabold text-slate-900">$ 23,000 USD</span>
+                                <span class="text-xs text-slate-500 font-medium">20% inicial.</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2 line-clamp-2">Uso Comercial Condominio Las Orquideas - Huaral</h3>
+                            <p class="text-xs text-slate-500 flex items-center gap-1 mt-1">
+                                <i class="fa-solid fa-location-dot text-amber-500"></i> Ubicado en el distrito de Aucallama, Huaral
+                            </p>
+                            <p class="text-slate-600 text-sm mt-3 line-clamp-4">
+                                Excelente ubicación comercial, en una zona de alto tránsito y fácil acceso. Ideal para negocios, oficinas, consultorios, showroom o inversión con gran potencial de rentabilidad. 
+                            </p>
+                        </div>
+
+                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-slate-700 text-sm font-semibold">
+                            <div class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-ruler-combined text-amber-500"></i>
+                                <span>100 m² Total</span>
+                            </div>
+                            <div class="flex items-center gap-1.5 text-xs text-slate-500">
+                                <i class="fa-solid fa-file-contract text-emerald-600"></i>
+                                <span>Inscrito en Sunarp</span>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/51996907363?text=Hola%20Samuel,%20estoy%20interesado%20en%20el%20Terreno%20Las%20Orquideas%20en%20Huaral%20de%20US$23,000" target="_blank" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-white font-bold text-center transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> QUIERO CONOCER ESTA PROPIEDAD
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROPIEDAD 2: TERRENO -->
+                <div class="property-card terrenos bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200/80 flex flex-col">
+                    <div class="relative h-60 overflow-hidden group">
+                        <img src="imagenes/las-margaritas.jpeg" 
+                             alt="Terreno Residencial" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Terreno+En+Venta'">
+                        <div class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-xs font-black uppercase px-3 py-1 rounded-full shadow-md">
+                            Venta
+                        </div>
+                        <div class="absolute top-4 right-4 bg-slate-900/80 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md">
+                            Terreno
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-extrabold text-slate-900">$ 23,500 USD</span>
+                                <span class="text-xs text-slate-500 font-medium">20% inicial.</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2 line-clamp-2">Condominio Residencial Las Margaritas - Huaral</h3>
+                            <p class="text-xs text-slate-500 flex items-center gap-1 mt-1">
+                                <i class="fa-solid fa-location-dot text-amber-500"></i> Ubicado en el distrito de Aucallama, Huaral
+                            </p>
+                            <p class="text-slate-600 text-sm mt-3 line-clamp-4">
+                                Excelente ubicación en una zona tranquila, segura y de fácil acceso, ideal para construir la vivienda que siempre soñaste o realizar una inversión con gran potencial de valorización.
+                            </p>
+                        </div>
+
+                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-slate-700 text-sm font-semibold">
+                            <div class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-ruler-combined text-amber-500"></i>
+                                <span>250 m² Desde</span>
+                            </div>
+                            <div class="flex items-center gap-1.5 text-xs text-slate-500">
+                                <i class="fa-solid fa-file-contract text-emerald-600"></i>
+                                <span>Inscrito en Sunarp</span>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/51996907363?text=Hola%20Samuel,%20estoy%20interesado%20en%20el%20Terreno%20Las%20Margaritas%20en%20Huaral%20de%20US$23,500" target="_blank" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-white font-bold text-center transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> QUIERO CONOCER ESTA PROPIEDAD
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROPIEDAD 3: TERRENO -->
+                <div class="property-card terrenos bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200/80 flex flex-col">
+                    <div class="relative h-60 overflow-hidden group">
+                        <img src="imagenes/las-camelias.jpeg" 
+                             alt="Terreno Residencial" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Terreno+En+Venta'">
+                        <div class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-xs font-black uppercase px-3 py-1 rounded-full shadow-md">
+                            Venta
+                        </div>
+                        <div class="absolute top-4 right-4 bg-slate-900/80 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md">
+                            Terreno
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-extrabold text-slate-900">S/. 115,500 PEN</span>
+                                <span class="text-xs text-slate-500 font-medium">S/ 10,000 inicial.</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2 line-clamp-2">Condominio Residencial Las Camelias - Huaral</h3>
+                            <p class="text-xs text-slate-500 flex items-center gap-1 mt-1">
+                                <i class="fa-solid fa-location-dot text-amber-500"></i> Ubicado en el distrito de Aucallama, Huaral
+                            </p>
+                            <p class="text-slate-600 text-sm mt-3 line-clamp-4">
+                                Lote con excelente ubicación en un entorno residencial, tranquilo y seguro, perfecto para desarrollar una vivienda familiar con una excelente calidad de vida.
+                            </p>
+                        </div>
+
+                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-slate-700 text-sm font-semibold">
+                            <div class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-ruler-combined text-amber-500"></i>
+                                <span>250 m² Desde</span>
+                            </div>
+                            <div class="flex items-center gap-1.5 text-xs text-slate-500">
+                                <i class="fa-solid fa-file-contract text-emerald-600"></i>
+                                <span>Inscrito en Sunarp</span>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/51996907363?text=Hola%20Samuel,%20estoy%20interesado%20en%20el%20Terreno%20Las%20Camelias%20en%20Huaral%20de%20S/.115,500" target="_blank" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-white font-bold text-center transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> QUIERO CONOCER ESTA PROPIEDAD
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROPIEDAD 4: DEPARTAMENTO -->
+                <div class="property-card departamentos bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200/80 flex flex-col">
+                    <div class="relative h-60 overflow-hidden group">
+                        <img src="imagenes/EDIFICIO-CV.png" 
+                             alt="Departamento Moderno" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Departamento'">
+                        <div class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-xs font-black uppercase px-3 py-1 rounded-full shadow-md">
+                            Venta
+                        </div>
+                        <div class="absolute top-4 right-4 bg-slate-900/80 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md">
+                            Departamento
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-extrabold text-slate-900">$ 87,000 USD</span>
+                                <span class="text-xs text-slate-500 font-medium">1 Dorm. | 2 Baños</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2 line-clamp-1">Departamento con Amplia Terraza</h3>
+                            <p class="text-xs text-slate-500 flex items-center gap-1 mt-1">
+                                <i class="fa-solid fa-location-dot text-amber-500"></i> Urb. Sagitario, Santiago de Surco
+                            </p>
+                            <p class="text-slate-600 text-sm mt-3 line-clamp-3">
+                                Venta de 2 departamentos en 6to piso, buena iluminación, terraza con vista panorámica. ¡Negociable!.
+                            </p>
+                        </div>
+
+                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-slate-700 text-sm font-semibold">
+                            <div class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-ruler-combined text-amber-500"></i>
+                                <span>90 m²</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-slate-500">
+                                <span><i class="fa-solid fa-bed text-slate-400"></i> 1</span>
+                                <span><i class="fa-solid fa-bath text-slate-400"></i> 2</span>
+                            </div>
+                        </div>
+
+                        <a href="https://wa.me/51996907363?text=Hola%20Samuel,%20deseo%20detalles%20del%20Departamento%20en%20Sagitario%20Surco%20de%20$87,000" target="_blank" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-white font-bold text-center transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Consultar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROPIEDAD 5: DEPARTAMENTO -->
+                <div class="property-card departamentos bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200/80 flex flex-col">
+                    <div class="relative h-60 overflow-hidden group">
+                        <img src="imagenes/EDIFICIO-CANVA.png" 
+                             alt="Departamento Moderno" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Departamento'">
+                        <div class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-xs font-black uppercase px-3 py-1 rounded-full shadow-md">
+                            Venta
+                        </div>
+                        <div class="absolute top-4 right-4 bg-slate-900/80 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md">
+                            Departamento
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-extrabold text-slate-900">$ 112,000 USD</span>
+                                <span class="text-xs text-slate-500 font-medium">3 Dorm. | 2 Baños</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2 line-clamp-1">Departamento Moderno</h3>
+                            <p class="text-xs text-slate-500 flex items-center gap-1 mt-1">
+                                <i class="fa-solid fa-location-dot text-amber-500"></i> Urb. Los Parrales, Santiago de Surco
+                            </p>
+                            <p class="text-slate-600 text-sm mt-3 line-clamp-3">
+                                Departamento en 2do piso, cerca de centros comerciales y colegios. Cochera opcional US$15,000. ¡Negociable!
+                            </p>
+                        </div>
+
+                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-slate-700 text-sm font-semibold">
+                            <div class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-ruler-combined text-amber-500"></i>
+                                <span>95 m²</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-slate-500">
+                                <span><i class="fa-solid fa-bed text-slate-400"></i> 3</span>
+                                <span><i class="fa-solid fa-bath text-slate-400"></i> 2</span>
+                                <span><i class="fa-solid fa-car text-slate-400"></i> 1</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/51996907363?text=Hola%20Samuel,%20deseo%20detalles%20del%20Departamento%20en%20Los%20Parrales%20Surco%20de%20US$112,000" target="_blank" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-white font-bold text-center transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Consultar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROPIEDAD 6: DEPARTAMENTO -->
+                <div class="property-card departamentos bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200/80 flex flex-col">
+                    <div class="relative h-60 overflow-hidden group">
+                        <img src="imagenes/EDIFICIO-AURA-SM.PNG" 
+                             alt="Departamento Moderno" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Departamento'">
+                        <div class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-xs font-black uppercase px-3 py-1 rounded-full shadow-md">
+                            Venta
+                        </div>
+                        <div class="absolute top-4 right-4 bg-slate-900/80 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md">
+                            Departamento
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-extrabold text-slate-900">S/. 484,000 PEN</span>
+                                <span class="text-xs text-slate-500 font-medium">3 Dorm. | 2 Baños</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2 line-clamp-1">Proyecto Aura</h3>
+                            <p class="text-xs text-slate-500 flex items-center gap-1 mt-1">
+                                <i class="fa-solid fa-location-dot text-amber-500"></i> Av, Los Patriotas, San Miguel
+                            </p>
+                            <p class="text-slate-600 text-sm mt-3 line-clamp-3">
+                                 Venta de 9 Departamentos en estreno moderno y exclusivo, cerca de centros comerciales y colegios. Entrega Inmediata!
+                            </p>
+                        </div>
+
+                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-slate-700 text-sm font-semibold">
+                            <div class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-ruler-combined text-amber-500"></i>
+                                <span>70 m²</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-slate-500">
+                                <span><i class="fa-solid fa-bed text-slate-400"></i> 3</span>
+                                <span><i class="fa-solid fa-bath text-slate-400"></i> 2</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/51996907363?text=Hola%20Samuel,%20deseo%20detalles%20del%20Departamento%20en%20Los%20Parrales%20Surco%20de%20US$112,000" target="_blank" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-white font-bold text-center transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Consultar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROPIEDAD 7: DEPARTAMENTO -->
+                <div class="property-card departamentos bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200/80 flex flex-col">
+                    <div class="relative h-60 overflow-hidden group">
+                        <img src="imagenes/EDIFICIO-NOI-SC.PNG" 
+                             alt="Departamento Moderno" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Departamento'">
+                        <div class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-xs font-black uppercase px-3 py-1 rounded-full shadow-md">
+                            Venta
+                        </div>
+                        <div class="absolute top-4 right-4 bg-slate-900/80 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md">
+                            Departamento
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-extrabold text-slate-900">S/. 310,000 PEN</span>
+                                <span class="text-xs text-slate-500 font-medium">3 Dorm. | 2 Baños</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2 line-clamp-1">Proyecto Noi</h3>
+                            <p class="text-xs text-slate-500 flex items-center gap-1 mt-1">
+                                <i class="fa-solid fa-location-dot text-amber-500"></i> Av. Esteban Campodonico, Santa Catalina
+                            </p>
+                            <p class="text-slate-600 text-sm mt-3 line-clamp-3">
+                                Pre Venta de Departamentos en zona exclusiva cerca centro comerciales y vias principales,cochera opcional. Entrega estimada: julio 2027.
+                            </p>
+                        </div>
+
+                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-slate-700 text-sm font-semibold">
+                            <div class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-ruler-combined text-amber-500"></i>
+                                <span>41 m²</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-slate-500">
+                                <span><i class="fa-solid fa-bed text-slate-400"></i> 3</span>
+                                <span><i class="fa-solid fa-bath text-slate-400"></i> 2</span>
+                                <span><i class="fa-solid fa-car text-slate-400"></i> 1</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/51996907363?text=Hola%20Samuel,%20deseo%20detalles%20del%20Departamento%20en%20Los%20Parrales%20Surco%20de%20US$112,000" target="_blank" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-white font-bold text-center transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Consultar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROPIEDAD 8: DEPARTAMENTO -->
+                <div class="property-card departamentos bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200/80 flex flex-col">
+                    <div class="relative h-60 overflow-hidden group">
+                        <img src="imagenes/EDIFICIO-SOIL-PL.jpg" 
+                             alt="Departamento Moderno" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Departamento'">
+                        <div class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-xs font-black uppercase px-3 py-1 rounded-full shadow-md">
+                            Venta
+                        </div>
+                        <div class="absolute top-4 right-4 bg-slate-900/80 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md">
+                            Departamento
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-extrabold text-slate-900">S/. 380,000 PEN</span>
+                                <span class="text-xs text-slate-500 font-medium">3 Dorm. | 2 Baños</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2 line-clamp-1">Proyecto Soil</h3>
+                            <p class="text-xs text-slate-500 flex items-center gap-1 mt-1">
+                                <i class="fa-solid fa-location-dot text-amber-500"></i> Av. La Marina, Pueblo Libre
+                            </p>
+                            <p class="text-slate-600 text-sm mt-3 line-clamp-3">
+                                Venta 7 Departamentos modernos y exclusivos bien ubicados a centros comerciales y vias principales, cochera opcional. Entrega Inmediata! 
+                            </p>
+                        </div>
+
+                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-slate-700 text-sm font-semibold">
+                            <div class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-ruler-combined text-amber-500"></i>
+                                <span>53 m²</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-slate-500">
+                                <span><i class="fa-solid fa-bed text-slate-400"></i> 3</span>
+                                <span><i class="fa-solid fa-bath text-slate-400"></i> 2</span>
+                                <span><i class="fa-solid fa-car text-slate-400"></i> 1</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/51996907363?text=Hola%20Samuel,%20deseo%20detalles%20del%20Departamento%20en%20Los%20Parrales%20Surco%20de%20US$112,000" target="_blank" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-white font-bold text-center transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Consultar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROPIEDAD 9: DEPARTAMENTO -->
+                <div class="property-card departamentos bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200/80 flex flex-col">
+                    <div class="relative h-60 overflow-hidden group">
+                        <img src="imagenes/EDIFICIO-MAGNOLIA.jpg" 
+                             alt="Departamento Moderno" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                             onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Departamento'">
+                        <div class="absolute top-4 left-4 bg-amber-500 text-slate-950 text-xs font-black uppercase px-3 py-1 rounded-full shadow-md">
+                            Venta
+                        </div>
+                        <div class="absolute top-4 right-4 bg-slate-900/80 text-white text-xs font-bold px-3 py-1 rounded-full backdrop-blur-md">
+                            Departamento
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-extrabold text-slate-900">S/. 965,000 PEN</span>
+                                <span class="text-xs text-slate-500 font-medium">3 Dorm. | 2 Baños</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2 line-clamp-1">Proyecto Magnolia Park</h3>
+                            <p class="text-xs text-slate-500 flex items-center gap-1 mt-1">
+                                <i class="fa-solid fa-location-dot text-amber-500"></i> Av. Antunez de Mayolo, Santiago de Surco
+                            </p>
+                            <p class="text-slate-600 text-sm mt-3 line-clamp-3">
+                                Venta 2 Departamentos Duplex modernos y exclusivos bien ubicados a centros comerciales y vias principales, cochera opcional. Entrega estimada: diciembre 2026. 
+                            </p>
+                        </div>
+
+                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-slate-700 text-sm font-semibold">
+                            <div class="flex items-center gap-1.5">
+                                <i class="fa-solid fa-ruler-combined text-amber-500"></i>
+                                <span>112 m²</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-xs text-slate-500">
+                                <span><i class="fa-solid fa-bed text-slate-400"></i> 3</span>
+                                <span><i class="fa-solid fa-bath text-slate-400"></i> 2</span>
+                                <span><i class="fa-solid fa-car text-slate-400"></i> 1</span>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/51996907363?text=Hola%20Samuel,%20deseo%20detalles%20del%20Departamento%20en%20Los%20Parrales%20Surco%20de%20US$112,000" target="_blank" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-white font-bold text-center transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i> Consultar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Banner para registrar nueva propiedad -->
+            <div class="mt-16 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-8 sm:p-10 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-2 text-center md:text-left">
+                    <h3 class="text-2xl font-bold">¿Tienes un inmueble que deseas Vender o Alquilar?</h3>
+                    <p class="text-slate-300 text-sm max-w-xl">
+                        Te ayudo a determinar el precio de mercado exacto y promocionar tu propiedad con máxima efectividad.
+                    </p>
+                </div>
+                <a href="https://wa.me/51996907363?text=Hola%20Samuel,%20quiero%20vender%20o%20alquilar%20mi%20propiedad" target="_blank" class="px-8 py-4 rounded-xl gradient-gold text-slate-950 font-extrabold hover:scale-105 transition-all text-center whitespace-nowrap">
+                    <i class="fa-solid fa-bullhorn me-2"></i> Publicar Mi Propiedad
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN CALCULADORA DE COMISIÓN POR INTERMEDIACIÓN (3% - 5%) -->
+    <section id="calculadora" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        
+        <div class="absolute -top-24 -left-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Herramienta Financiera</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Calculadora de Intermediación Inmobiliaria</h2>
+                <p class="text-slate-300 mt-3 text-base">
+                    Estima de forma transparente el honorario por intermediación comercial para la venta de tu inmueble (entre el <strong>3%</strong> y el <strong>5%</strong>).
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <div class="lg:col-span-7 bg-slate-800/80 rounded-3xl p-6 sm:p-8 border border-slate-700 backdrop-blur-md shadow-2xl space-y-6">
+                    
+                    <div>
+                        <label for="propPrice" class="block text-sm font-semibold text-slate-200 mb-2">
+                            Precio Estimado del Inmueble
+                        </label>
+                        <div class="relative rounded-xl shadow-sm">
+                            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 font-bold">
+                                $ (USD)
+                            </div>
+                            <input type="number" id="propPrice" value="150000" step="5000" min="10000" class="w-full pl-20 pr-4 py-3.5 bg-slate-900 border border-slate-700 rounded-xl text-white font-extrabold text-xl focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition-all">
+                        </div>
+                        <p class="text-xs text-slate-400 mt-1">Ingresa el valor total estimado de venta.</p>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="text-sm font-semibold text-slate-200">
+                                Porcentaje de Intermediación
+                            </label>
+                            <span id="commissionRateLabel" class="text-amber-400 font-black text-xl bg-amber-500/10 px-3 py-1 rounded-lg border border-amber-500/30">
+                                4.0 %
+                            </span>
+                        </div>
+
+                        <div class="grid grid-cols-5 gap-2 mb-4">
+                            <button onclick="setRate(3.0)" class="rate-btn py-2.5 rounded-lg bg-slate-900 border border-slate-700 text-slate-300 font-bold hover:bg-amber-500 hover:text-slate-950 transition-all text-sm" data-rate="3.0">3.0%</button>
+                            <button onclick="setRate(4.0)" class="rate-btn active py-2.5 rounded-lg bg-amber-500 text-slate-950 font-bold border border-amber-500 text-sm" data-rate="4.0">4.0%</button>
+                            <button onclick="setRate(5.0)" class="rate-btn py-2.5 rounded-lg bg-slate-900 border border-slate-700 text-slate-300 font-bold hover:bg-amber-500 hover:text-slate-950 transition-all text-sm" data-rate="5.0">5.0%</button>
+                        </div>
+
+                        <input type="range" id="rateSlider" min="3.0" max="5.0" step="0.5" value="4.0" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer">
+                    </div>
+
+                    <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800 text-xs text-slate-300 space-y-2">
+                        <div class="font-bold text-amber-400 uppercase tracking-wider">¿Qué incluye el servicio de intermediación?</div>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Estudio de mercado y valoración</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Marketing y publicidad en portales</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Filtro de compradores calificados</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Asesoría legal y minuta de compraventa</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="lg:col-span-5">
+                    <div class="bg-gradient-to-b from-amber-500 to-amber-600 rounded-3xl p-6 sm:p-8 text-slate-950 shadow-2xl relative overflow-hidden">
+                        
+                        <div class="uppercase tracking-widest text-xs font-black text-slate-900/80 mb-2">
+                            Resumen Estimado
+                        </div>
+
+                        <div class="space-y-6">
+                            <div>
+                                <span class="text-sm font-semibold text-slate-900">Monto del Honorario por Intermediación</span>
+                                <div id="commissionResult" class="text-4xl sm:text-5xl font-black tracking-tight text-slate-950 mt-1">
+                                    $ 6,000 USD
+                                </div>
+                            </div>
+
+                            <hr class="border-slate-950/20">
+
+                            <div class="space-y-3 text-sm">
+                                <div class="flex justify-between items-center font-medium">
+                                    <span>Valor del Inmueble:</span>
+                                    <span id="displayPropValue" class="font-bold">$ 150,000 USD</span>
+                                </div>
+                                <div class="flex justify-between items-center font-medium">
+                                    <span>Porcentaje Aplicado:</span>
+                                    <span id="displayRate" class="font-bold">4.0 %</span>
+                                </div>
+                                <div class="flex justify-between items-center font-bold text-base pt-2 border-t border-slate-950/10">
+                                    <span>Neto aproximado a recibir:</span>
+                                    <span id="netResult" class="text-xl font-black text-slate-950">$ 144,000 USD</span>
+                                </div>
+                            </div>
+
+                            <button onclick="sendCalculatedWhatsApp()" class="w-full py-4 rounded-xl bg-slate-950 hover:bg-slate-900 text-white font-extrabold text-center transition-all shadow-xl flex items-center justify-center gap-2 mt-4">
+                                <i class="fa-brands fa-whatsapp text-xl text-amber-400"></i>
+                                <span>Consultar con Samuel Segura</span>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN POR QUÉ TRABAJAR CON SAMUEL SEGURA -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-amber-600 font-bold text-xs uppercase tracking-widest">Ventajas Profesionales</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">¿Por qué confiar la gestión de tu propiedad?</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200 hover:border-amber-500/50 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-600 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Acreditación Oficial MVCS</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Agente Inmobiliario registrado ante el Ministerio de Vivienda, Construcción y Saneamiento (MVCS), Registro N.° 26224-PN-MVCS. Atención profesional, ética y transparente en cada operación.
+
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200 hover:border-amber-500/50 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-600 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Estrategia Comercial Efectiva</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Posicionamiento de tu inmueble en los mejores canales digitales y red de contactos para lograr un cierre rápido al mejor precio.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-200 hover:border-amber-500/50 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-600 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Acompañamiento Integral</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Brindo acompañamiento profesional durante todo el proceso de compra, venta o alquiler, desde la evaluación inicial hasta el cierre de la operación.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE CONTACTO DIRECTO (SIN FORMULARIO) -->
+    <section id="contacto" class="py-20 bg-slate-900 text-white border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-amber-400 font-bold text-xs uppercase tracking-widest">Atención Inmediata</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Canales Directos de Contacto</h2>
+                <p class="text-slate-300 mt-3 text-base">
+                    Comunícate directamente con Samuel Segura a través de los siguientes medios institucionales:
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                
+                <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 text-center space-y-3 hover:border-amber-500/50 transition-all">
+                    <div class="w-12 h-12 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center mx-auto text-xl">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Llamada Directa</h3>
+                    <p class="text-xs text-slate-400">Atención personalizada inmediata</p>
+                    <div class="text-amber-400 font-bold text-base pt-1">
+                        <div><a href="tel:996907363" class="hover:underline">996 907 363</a></div>
+                        <div><a href="tel:941306659" class="hover:underline">941 306 659</a></div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 text-center space-y-3 hover:border-amber-500/50 transition-all">
+                    <div class="w-12 h-12 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center mx-auto text-xl">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Correo Electrónico</h3>
+                    <p class="text-xs text-slate-400">Consultas y envío de documentos</p>
+                    <div class="text-amber-400 font-bold text-sm pt-2 truncate">
+                        <a href="mailto:saseyu.inmobiliaria@gmail.com" class="hover:underline">saseyu.inmobiliaria@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700 text-center space-y-3 hover:border-amber-500/50 transition-all">
+                    <div class="w-12 h-12 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center mx-auto text-xl">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Oficina</h3>
+                    <p class="text-xs text-slate-400">Surco, Lima - Perú</p>
+                    <p class="text-slate-300 text-xs font-medium pt-1">
+                        Calle Poseidon Mz A9 Lt 12 Urb. Sagitario - Surco
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="https://wa.me/51996907363?text=Hola%20Samuel%20Segura,%20deseo%20mayor%20información" target="_blank" class="inline-flex items-center gap-3 px-10 py-5 rounded-2xl gradient-gold text-slate-950 font-black text-lg hover:shadow-2xl hover:shadow-amber-500/30 hover:scale-105 transition-all">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    <span>Iniciar Chat por WhatsApp Ahora</span>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-400 py-10 border-t border-slate-800 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold">
+                    <img src="imagenes/logotipo_inmobiliario.png" alt="Logo Samuel Segura" class="h-10 w-auto object-contain">
+                </div>
+                <span class="text-slate-200 font-bold">Samuel Segura | Agente Inmobiliario</span>
+            </div>
+
+            <div class="text-xs text-slate-500 text-center sm:text-right">
+                <p>Código N° 26224-PN-MVCS - Todos los derechos reservados.</p>
+                <p class="mt-0.5">Surco, Lima - Perú</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT INTERACTIVO -->
+    <script>
+        // --- MENÚ MÓVIL ---
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- FILTRADO DE PROPIEDADES ---
+        function filterProperties(category) {
+            const cards = document.querySelectorAll('.property-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-filter') === category) {
+                    btn.classList.add('bg-slate-900', 'text-white', 'shadow-md');
+                    btn.classList.remove('bg-white', 'text-slate-700');
+                } else {
+                    btn.classList.remove('bg-slate-900', 'text-white', 'shadow-md');
+                    btn.classList.add('bg-white', 'text-slate-700');
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // --- CALCULADORA DE COMISIÓN DE INTERMEDIACIÓN ---
+        const propPriceInput = document.getElementById('propPrice');
+        const rateSlider = document.getElementById('rateSlider');
+        const rateLabel = document.getElementById('commissionRateLabel');
+        const commissionResult = document.getElementById('commissionResult');
+        const displayPropValue = document.getElementById('displayPropValue');
+        const displayRate = document.getElementById('displayRate');
+        const netResult = document.getElementById('netResult');
+        
+        let currentRate = 4.0;
+
+        function formatCurrency(amount) {
+            return '$ ' + Math.round(amount).toLocaleString('en-US') + ' USD';
+        }
+
+        function calculateCommission() {
+            const price = parseFloat(propPriceInput.value) || 0;
+            const rate = parseFloat(currentRate);
+
+            const commission = price * (rate / 100);
+            const netAmount = price - commission;
+
+            rateLabel.textContent = rate.toFixed(1) + ' %';
+            displayRate.textContent = rate.toFixed(1) + ' %';
+            commissionResult.textContent = formatCurrency(commission);
+            displayPropValue.textContent = formatCurrency(price);
+            netResult.textContent = formatCurrency(netAmount);
+
+            document.querySelectorAll('.rate-btn').forEach(btn => {
+                const btnRate = parseFloat(btn.getAttribute('data-rate'));
+                if (btnRate === rate) {
+                    btn.classList.add('bg-amber-500', 'text-slate-950', 'border-amber-500');
+                    btn.classList.remove('bg-slate-900', 'text-slate-300');
+                } else {
+                    btn.classList.remove('bg-amber-500', 'text-slate-950', 'border-amber-500');
+                    btn.classList.add('bg-slate-900', 'text-slate-300');
+                }
+            });
+        }
+
+        function setRate(rate) {
+            currentRate = rate;
+            rateSlider.value = rate;
+            calculateCommission();
+        }
+
+        propPriceInput.addEventListener('input', calculateCommission);
+        rateSlider.addEventListener('input', (e) => {
+            currentRate = parseFloat(e.target.value);
+            calculateCommission();
+        });
+
+        function sendCalculatedWhatsApp() {
+            const price = parseFloat(propPriceInput.value) || 0;
+            const commission = price * (currentRate / 100);
+            
+            const message = `Hola Samuel Segura, estuve usando la calculadora de tu sitio web. Tengo un inmueble valorizado en aprox. USD $${price.toLocaleString('en-US')} y deseo consultar sobre la intermediación al ${currentRate}% (comisión est. USD $${commission.toLocaleString('en-US')}).`;
+            
+            const encodedMsg = encodeURIComponent(message);
+            window.open(`https://wa.me/51996907363?text=${encodedMsg}`, '_blank');
+        }
+
+        window.onload = function() {
+            calculateCommission();
+        };
+
+        // --- FUNCIONES PARA EL MODAL DE VIDEO ---
+        function openVideoModal(container) {
+            const video = container.querySelector('video');
+            const modal = document.getElementById('videoModal');
+            const modalContainer = document.getElementById('modalVideoContainer');
+            
+            if (!video) return;
+
+            const sources = video.querySelectorAll('source');
+            const poster = video.getAttribute('poster') || '';
+            
+            let videoHTML = `<video class="w-full h-full object-contain bg-black" controls autoplay playsinline poster="${poster}">`;
+            
+            sources.forEach(source => {
+                videoHTML += `<source src="${source.src}" type="${source.type}">`;
+            });
+            
+            videoHTML += 'Tu navegador no soporta la reproducción de video HTML5.</video>';
+            
+            modalContainer.innerHTML = videoHTML;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const modalContainer = document.getElementById('modalVideoContainer');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            modalContainer.innerHTML = '';
+            document.body.style.overflow = '';
+        }
+
+        // Cerrar modal con tecla Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeVideoModal();
+            }
+        });
+    </script>
+</body>
+</html>
